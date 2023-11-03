@@ -9,6 +9,8 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 import java.util.Locale;
 
 @Entity
@@ -23,6 +25,8 @@ public class Building {
   private String buildingName;
   private String address;
   private String city;
+  @OneToMany(mappedBy = "building")
+  private List<Workstation> workstationList;
 
   public void setName(String name) {
     this.buildingName = name;

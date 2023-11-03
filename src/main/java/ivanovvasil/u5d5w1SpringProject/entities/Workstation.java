@@ -7,9 +7,8 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Locale;
 
 @Entity
@@ -17,14 +16,18 @@ import java.util.Locale;
 @AllArgsConstructor
 @Builder(builderClassName = "workstationFromfaker")
 @ToString
-public class CompanyWorkstation {
+public class Workstation {
   @Id
   @GeneratedValue
   private long Id;
   private String description;
   private WorkstationType type;
   private int maxOccupants;
+  @ManyToOne
+  @JoinColumn(name = "building_id")
   private Building building;
+  @OneToMany(mappedBy = "workstation")
+  private List<Prenotation> prenotationList;
 
   public void setDescription(String description) {
     this.description = description;

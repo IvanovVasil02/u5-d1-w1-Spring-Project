@@ -6,6 +6,8 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 import java.util.Locale;
 
 @Entity
@@ -21,6 +23,8 @@ public class User {
   private String username;
   private String fullName;
   private String email;
+  @OneToMany(mappedBy = "user")
+  private List<Prenotation> prenotationList;
 
   public void setUsername(String username) {
     this.username = username;
