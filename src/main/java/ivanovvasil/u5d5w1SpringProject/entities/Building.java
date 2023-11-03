@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import java.util.Locale;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(builderClassName = "buildingFromFaker")
+@ToString
 public class Building {
   @Id
   @GeneratedValue
@@ -23,7 +25,7 @@ public class Building {
   private String city;
 
   public void setName(String name) {
-    this.name = name;
+    this.buildingName = name;
   }
 
   public void setAddress(String address) {
@@ -37,7 +39,7 @@ public class Building {
 
   public static class buildingFromFaker {
     Faker f = new Faker(Locale.ITALY);
-    private String name = f.company().name();
+    private String buildingName = f.company().name();
     private String address = f.address().streetAddress();
     private String city = f.address().city();
   }
