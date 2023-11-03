@@ -21,7 +21,7 @@ import java.util.Locale;
 public class Building {
   @Id
   @GeneratedValue
-  private Long Id;
+  private long Id;
   private String buildingName;
   private String address;
   private String city;
