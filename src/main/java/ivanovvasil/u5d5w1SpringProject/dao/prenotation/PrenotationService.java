@@ -5,7 +5,6 @@ import ivanovvasil.u5d5w1SpringProject.exceptions.ItemNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -14,21 +13,19 @@ public class PrenotationService implements IPrenotationDAO {
   private PrenotationRepository repository;
 
   @Override
-  public void save(Prenotation user) {
+  public void save(Prenotation prenotation) {
 
-    repository.save(user);
+    if (repository.existsPrenotationByDate(prenotation.getDate())) {
+      System.out.println("This day has already been booked, choose another...");
+    } else {
+      repository.save(prenotation);
+    }
   }
 
   @Override
   public List<Prenotation> findAll() {
     return repository.findAll();
   }
-
-  @Override
-  public List<LocalDate> getAllPrenotatedDay() {
-    return repository.getAllPrenotatedDay();
-  }
-
 
   @Override
   public Prenotation findById(Long id) throws ItemNotFoundException {
@@ -42,7 +39,7 @@ public class PrenotationService implements IPrenotationDAO {
   }
 
   @Override
-  public void findByIdAndUpdate(Prenotation user) {
+  public void findByIdAndUpdate(Prenotation prenotation) {
 
   }
 

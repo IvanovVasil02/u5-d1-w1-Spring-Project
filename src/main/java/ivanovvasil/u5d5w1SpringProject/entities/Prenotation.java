@@ -1,15 +1,16 @@
 package ivanovvasil.u5d5w1SpringProject.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
-@Builder
 @ToString
 public class Prenotation {
   @Id
@@ -21,7 +22,14 @@ public class Prenotation {
   @ManyToOne
   @JoinColumn(name = "workstation_id")
   private Workstation workstation;
-  private Date date;
+  private LocalDate date;
+
+  public Prenotation(User user, Workstation workstation, String date) {
+    this.user = user;
+    this.workstation = workstation;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    this.date = LocalDate.parse(date, formatter);
+  }
 
   public void setUser(User user) {
     this.user = user;
@@ -31,7 +39,7 @@ public class Prenotation {
     this.workstation = workstation;
   }
 
-  public void setDate(Date date) {
+  public void setDate(LocalDate date) {
     this.date = date;
   }
 

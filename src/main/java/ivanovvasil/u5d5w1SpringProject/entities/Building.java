@@ -8,7 +8,6 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.List;
 import java.util.Locale;
@@ -17,7 +16,6 @@ import java.util.Locale;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(builderClassName = "buildingFromFaker")
-@ToString
 public class Building {
   @Id
   @GeneratedValue
@@ -39,6 +37,16 @@ public class Building {
 
   public void setCity(String city) {
     this.city = city;
+  }
+
+  @Override
+  public String toString() {
+    return "Building{" +
+            "Id=" + Id +
+            ", buildingName='" + buildingName + '\'' +
+            ", address='" + address + '\'' +
+            ", city='" + city + '\'' +
+            '}';
   }
 
   public static class buildingFromFaker {

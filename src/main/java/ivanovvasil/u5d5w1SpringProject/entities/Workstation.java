@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.List;
 import java.util.Locale;
@@ -15,12 +14,12 @@ import java.util.Locale;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(builderClassName = "workstationFromfaker")
-@ToString
 public class Workstation {
   @Id
   @GeneratedValue
   private long Id;
   private String description;
+  @Enumerated(EnumType.STRING)
   private WorkstationType type;
   private int maxOccupants;
   @ManyToOne
@@ -37,10 +36,21 @@ public class Workstation {
     this.type = type;
   }
 
+  @Override
+  public String toString() {
+    return "Workstation{" +
+            "Id=" + Id +
+            ", description='" + description + '\'' +
+            ", type=" + type +
+            ", maxOccupants=" + maxOccupants +
+            ", building=" + building +
+            '}';
+  }
+
   public static class workstationFromfaker {
     Faker f = new Faker(Locale.ITALY);
     private String description = "Description....";
-    private WorkstationType type = WorkstationType.OPENSPACE;
+    private WorkstationType type = WorkstationType.getRandomWorkstationType();
     private int maxOccupants = f.number().numberBetween(4, 10);
   }
 }

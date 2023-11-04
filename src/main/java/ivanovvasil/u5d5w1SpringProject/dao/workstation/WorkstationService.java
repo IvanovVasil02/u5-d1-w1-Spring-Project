@@ -1,6 +1,8 @@
 package ivanovvasil.u5d5w1SpringProject.dao.workstation;
 
 import ivanovvasil.u5d5w1SpringProject.entities.Workstation;
+import ivanovvasil.u5d5w1SpringProject.enums.WorkstationType;
+import ivanovvasil.u5d5w1SpringProject.exceptions.EmptyListException;
 import ivanovvasil.u5d5w1SpringProject.exceptions.ItemNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,19 @@ public class WorkstationService implements IWorkstationDAO {
   @Override
   public List<Workstation> findAll() {
     return repository.findAll();
+  }
+
+  @Override
+  public void findByTypeAndCity(WorkstationType type, String city) throws EmptyListException {
+    List<Workstation> workstationList = repository.findByWorkstationTypeAndCity(type, city);
+
+    workstationList.forEach(System.out::println);
+//    if (!workstationList.isEmpty()) {
+//      workstationList.forEach(System.out::println);
+//    } else {
+//      throw new EmptyListException(type, city);
+//    }
+
   }
 
   @Override
