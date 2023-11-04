@@ -2,12 +2,12 @@ package ivanovvasil.u5d5w1SpringProject.entities;
 
 import com.github.javafaker.Faker;
 import ivanovvasil.u5d5w1SpringProject.enums.WorkstationType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.*;
 import java.util.List;
 import java.util.Locale;
 

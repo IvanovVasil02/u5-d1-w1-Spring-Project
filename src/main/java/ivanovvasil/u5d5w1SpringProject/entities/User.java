@@ -1,12 +1,12 @@
 package ivanovvasil.u5d5w1SpringProject.entities;
 
 import com.github.javafaker.Faker;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.Locale;
 

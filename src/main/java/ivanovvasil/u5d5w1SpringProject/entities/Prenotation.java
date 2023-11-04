@@ -1,8 +1,8 @@
 package ivanovvasil.u5d5w1SpringProject.entities;
 
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
