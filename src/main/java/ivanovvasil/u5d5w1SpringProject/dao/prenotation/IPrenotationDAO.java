@@ -2,6 +2,7 @@ package ivanovvasil.u5d5w1SpringProject.dao.prenotation;
 
 import ivanovvasil.u5d5w1SpringProject.entities.Prenotation;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IPrenotationDAO {
@@ -14,4 +15,6 @@ public interface IPrenotationDAO {
   public Prenotation findById(Long id);
 
   public List<Prenotation> findAll();
+
+  public List<LocalDate> getAllPrenotatedDay();
 }

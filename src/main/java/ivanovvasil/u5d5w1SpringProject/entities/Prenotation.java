@@ -3,13 +3,13 @@ package ivanovvasil.u5d5w1SpringProject.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Builder(builderClassName = "prenotationFromFaker")
+@Builder
 @ToString
 public class Prenotation {
   @Id
@@ -21,7 +21,7 @@ public class Prenotation {
   @ManyToOne
   @JoinColumn(name = "workstation_id")
   private Workstation workstation;
-  private LocalDate date;
+  private Date date;
 
   public void setUser(User user) {
     this.user = user;
@@ -31,11 +31,8 @@ public class Prenotation {
     this.workstation = workstation;
   }
 
-  public void setDate(LocalDate date) {
+  public void setDate(Date date) {
     this.date = date;
   }
 
-  public static class prenotationFromFaker {
-    private LocalDate date = LocalDate.now();
-  }
 }

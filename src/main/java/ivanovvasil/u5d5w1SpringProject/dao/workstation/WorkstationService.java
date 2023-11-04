@@ -2,12 +2,14 @@ package ivanovvasil.u5d5w1SpringProject.dao.workstation;
 
 import ivanovvasil.u5d5w1SpringProject.entities.Workstation;
 import ivanovvasil.u5d5w1SpringProject.exceptions.ItemNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class WorkstationService implements IWorkstationDAO {
+  @Autowired
   private WorkstationRepository repository;
 
   @Override

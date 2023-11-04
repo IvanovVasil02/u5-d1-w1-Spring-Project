@@ -2,12 +2,14 @@ package ivanovvasil.u5d5w1SpringProject.dao.building;
 
 import ivanovvasil.u5d5w1SpringProject.entities.Building;
 import ivanovvasil.u5d5w1SpringProject.exceptions.ItemNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class BuildingService implements IBuildingDAO {
+  @Autowired
   private BuildingRepository repository;
 
   @Override

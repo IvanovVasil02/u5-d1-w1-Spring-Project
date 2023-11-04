@@ -2,12 +2,14 @@ package ivanovvasil.u5d5w1SpringProject.dao.user;
 
 import ivanovvasil.u5d5w1SpringProject.entities.User;
 import ivanovvasil.u5d5w1SpringProject.exceptions.ItemNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserService implements IUsersDAO {
+  @Autowired
   private UserRepository repository;
 
   @Override
