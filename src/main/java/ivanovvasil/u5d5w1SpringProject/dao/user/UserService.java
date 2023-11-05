@@ -13,6 +13,11 @@ public class UserService implements IUsersDAO {
   private UserRepository repository;
 
   @Override
+  public User findByUsername(String username) {
+    return repository.findDistinctUserByUsername(username);
+  }
+
+  @Override
   public void save(User user) {
     repository.save(user);
   }

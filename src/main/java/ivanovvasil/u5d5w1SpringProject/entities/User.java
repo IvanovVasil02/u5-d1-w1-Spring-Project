@@ -5,7 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Locale;
@@ -15,7 +18,6 @@ import java.util.Locale;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(builderClassName = "userBuilderFromFaker")
-@ToString
 public class User {
   @Id
   @GeneratedValue
@@ -36,6 +38,16 @@ public class User {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  @Override
+  public String toString() {
+    return "User{" +
+            "id=" + id +
+            ", username='" + username + '\'' +
+            ", fullName='" + fullName + '\'' +
+            ", email='" + email + '\'' +
+            '}';
   }
 
   public static class userBuilderFromFaker {

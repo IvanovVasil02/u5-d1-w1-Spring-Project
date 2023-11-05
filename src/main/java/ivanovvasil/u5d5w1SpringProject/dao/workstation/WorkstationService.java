@@ -38,6 +38,11 @@ public class WorkstationService implements IWorkstationDAO {
   }
 
   @Override
+  public void showAllWorkstation() {
+    repository.findAll().forEach(System.out::println);
+  }
+
+  @Override
   public Workstation findById(Long id) throws ItemNotFoundException {
     return repository.findById(id).orElseThrow(() -> new ItemNotFoundException(id));
   }
