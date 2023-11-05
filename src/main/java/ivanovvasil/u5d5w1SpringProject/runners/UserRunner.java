@@ -19,6 +19,5 @@ public class UserRunner implements CommandLineRunner {
 //      usersDAO.save(newUser);
 //    }
 
-
   }
 }

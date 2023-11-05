@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements IUsersDAO {
@@ -13,8 +14,9 @@ public class UserService implements IUsersDAO {
   private UserRepository repository;
 
   @Override
-  public User findByUsername(String username) {
-    return repository.findDistinctUserByUsername(username);
+  public User findByUsername(String username) throws ItemNotFoundException {
+    Optional<User> user = Optional.ofNullable(repository.findDistinctUserByUsername(username));
+    return user.orElseThrow(() -> new ItemNotFoundException(username));
   }
 
   @Override

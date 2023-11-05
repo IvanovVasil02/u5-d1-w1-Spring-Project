@@ -6,6 +6,11 @@ public class ItemNotFoundException extends RuntimeException {
   }
 
   public ItemNotFoundException() {
-    super("Item not foud...");
+    super("Item not found...");
   }
+
+  public ItemNotFoundException(String username) {
+    super("There is no registered user with this username: " + username);
+  }
+
 }
