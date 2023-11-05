@@ -9,14 +9,16 @@ import ivanovvasil.u5d5w1SpringProject.entities.User;
 import ivanovvasil.u5d5w1SpringProject.entities.Workstation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-//@Component
-//@Order(4)
+@Component
+@Order(4)
 public class PrenotationRunner implements CommandLineRunner {
   @Autowired
   private IUsersDAO usersDAO;
