@@ -9,6 +9,7 @@ import ivanovvasil.u5d5w1SpringProject.dao.workstation.WorkstationService;
 import ivanovvasil.u5d5w1SpringProject.entities.Prenotation;
 import ivanovvasil.u5d5w1SpringProject.entities.User;
 import ivanovvasil.u5d5w1SpringProject.entities.Workstation;
+import ivanovvasil.u5d5w1SpringProject.enums.WorkstationType;
 import ivanovvasil.u5d5w1SpringProject.exceptions.EmptyListException;
 import ivanovvasil.u5d5w1SpringProject.exceptions.ItemNotFoundException;
 import org.springframework.boot.SpringApplication;
@@ -100,7 +101,18 @@ public class U5D5W1SpringProjectApplication {
 
             break;
           }
+          case 2: {
+            System.out.println("you have chosen to look for a workstation");
 
+            System.out.println("What type of workstation are you looking for?\n1: PRIVATE\n2: OPENSPACE\n3: METTING_ROOM");
+            int chosenWorkstation = Integer.parseInt(scanner.nextLine());
+            WorkstationType workstationType = WorkstationType.getMeWorkstationType(chosenWorkstation);
+
+            System.out.println("Enter the name of the city in which you are trying to book a workstation");
+            String city = scanner.nextLine();
+            workstationDAO.findByTypeAndCity(workstationType, city);
+            break;
+          }
 
         }
       }

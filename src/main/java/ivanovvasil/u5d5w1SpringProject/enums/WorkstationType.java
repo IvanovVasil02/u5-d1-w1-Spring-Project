@@ -11,4 +11,9 @@ public enum WorkstationType {
     WorkstationType[] workstations = values();
     return workstations[rndm.nextInt(workstations.length)];
   }
+
+  public static WorkstationType getMeWorkstationType(int index) {
+    WorkstationType[] workstations = values();
+    return workstations[index - 1];
+  }
 }
