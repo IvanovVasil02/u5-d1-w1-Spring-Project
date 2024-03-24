@@ -14,9 +14,6 @@ spring.datasource.password=firstDb
 spring.datasource.driver-class-name=org.postgresql.Driver
 spring.jpa.properties.hibernate.default_schema=public
 spring.jpa.hibernate.ddl-auto=update
-Replace localhost:5432/u5d5w1Project with your PostgreSQL server URL and database name.
-Update spring.datasource.username and spring.datasource.password with your PostgreSQL username and password if different.
-Run the Application: Compile and run the Spring Boot application to start the office workstation reservation system. Ensure that the PostgreSQL server is running before running the application.
 ```
 
 - Replace **localhost:5432/u5d5w1Project** with your PostgreSQL server URL and database name.
